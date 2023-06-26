@@ -1,5 +1,7 @@
 # server-sent-events-demo
 
+Server-Sent Events go语言实现demo。SSE的具体的使用可以参考: [Clogs](https://github.com/raojinlin/clogs)
+
 ## web实时通信机制
 
 * Websocket
@@ -83,3 +85,20 @@ EventSource使用
 
 
 ![x](https://article.biliimg.com/bfs/article/64ceff601c636f4426809085c6f150a5b0d1a4cb.png)
+
+
+### 注意事项
+* nginx配置
+  * 使用nginx做反向代理时需要将proxy_buffering关闭
+    * proxy_buffering off
+  * 或者加上响应头部x-accel-buffering，这样nginx就不会给后端响应数据加buffer
+    * x-accel-buffering: no
+* EventSource
+  * 连接关闭后会自动重连
+  * 需要显示的调用close方法
+  * EventSource.prototype.close
+ 
+
+
+### 参考
+[MDN - Using_server-sent_events](https://developer.mozilla.org/zh-CN/docs/Web/API/Server-sent_events/Using_server-sent_events)
