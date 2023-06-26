@@ -77,7 +77,7 @@ EventSource使用
 * `String() string`，将Event编码为字符串
 * `Bytes() []byte`，将Event编码为字节切片
 
-![](https://article.biliimg.com/bfs/article/64ceff601c636f4426809085c6f150a5b0d1a4cb.pngd239667cfb2d8f93a2.png)
+![](https://article.biliimg.com/bfs/article/b371e1ed17e63916d4862fd239667cfb2d8f93a2.png)
 
 创建一个HTTP 控制器，负责输出事件流。下面这个stream函数会输出100个事件到客户端，每隔1秒钟输出一个事件。这里注意，一个事件写入到连接后不要忘记把缓存数据flush掉，这样客户端才能看到最新推送的数据。
 
